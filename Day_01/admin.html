@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-book Management</title>
+</head>
+<body>
+    <h1>Book Management</h1>
+    <div>
+        <button onclick="window.location.href='index.html'">Back To Home</button>
+    </div>
+    <!-- add book form -->
+    <div id="formContainer">
+        <h3>Add Book</h3>
+        <input type="text" id="title" placeholder="Book Title"><br>
+        <input type="text" id="author" placeholder="Author Name"><br>
+
+        <select id="filterCategory">
+            <option value="">Select Category</option>
+            <option value="fiction">Fiction</option>
+            <option value="comedy">Comedy</option>
+            <option value="Technical">Technical</option>
+        </select><br>
+        <button onclick="addBook()">Add Book</button>
+    </div>
+    <!-- sort & filter -->
+     <div class="topControls">
+        <button onclick="sortBookAZ()">Sort A->Z</button>
+        <button onclick="sortBookZA()">Sort Z->A</button>
+        <select id="filterCatogary" onchange="filterBooks()">
+            <option value="">All</optin>
+            <option value="Fiction">Fiction</optin>
+            <option value="Comedy">Comedy</optin>
+            <option value="Technical">Technical</option> 
+        </select>
+     </div>
+     <!-- Books display -->
+      <div id="booksContainer"></div>
+      <script>
+        let books=[];
+        const img_url="https://m.media-amazon.com/images/I/71ZB18P3inL._SY522_.jpg";
+        
+        function addBook(){
+            let title=document.getElementById("title").value.trim();
+            let author=document.getElementById("author").value.trim();
+            let Category=document.getElementById("category").value;
+
+            if(!title || !author || !Category){
+                alert("Please fill all fields!");
+            return;
+            }
+        let book={
+            title,
+            author,
+            category,
+            imageurl:img_url
+        }
+        books.push(book);
+        renderBooks(books);
+
+        document.getElementById("title").value="";
+        document.getElementById("author").value="";
+        document.getElementById("category").value="";
+    }
+    function renderBooks(bookList){
+        let container=document.get getElementById("bookscontainer");
+        container.innerHTML="";
+
+        bookList.forEach((book,index)=>{
+            let card=document.createElement("div");
+            card.className="card";
+
+            //Image
+            let img=document.
+        })
+    }
+
+      </script>
+     
+</body>
+</html>
